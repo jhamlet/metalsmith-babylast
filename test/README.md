@@ -1,1 +1,0 @@
-Placeholder file for metalsmith-babylast `test` files.

@@ -1,27 +1,26 @@
 {
     "name": "metalsmith-babylast",
     "fullname": "Metalsmith Babylast",
-    "description": "Babylon ASTs",
-    "version": "0.0.0",
-    "keywords": [],
+    "description": "Add a Babylon AST to each Metalsmith file object.",
+    "version": "0.1.0",
+    "keywords": [ "metalsmith", "babylon", "ast", "javascript" ],
     "main": "./lib/index.js",
     "dependencies": {
-        "lodash":  "^3.0",
-        "protean": "^0.6",
-        "ramda":   "^0.18",
-        "rx":      "^4.0"
+        "babylon":    "^6.3",
+        "lodash":     "^3.0"
     },
     "devDependencies": {
-        "mocha":    "^2.0",
-        "should":   "^7.0",
-        "del":      "^2.1",
-        "gulp":     "^3.9",
-        "gulp-ejs": "^1.2"
+        "metalsmith": "^2.1",
+        "mocha":      "^2.0",
+        "should":     "^7.0",
+        "del":        "^2.1",
+        "gulp":       "^3.9",
+        "gulp-ejs":   "^1.2"
     },
     "scripts": {
-        "build": "./node_modules/.bin/gulp",
+        "build":   "./node_modules/.bin/gulp",
         "clobber": "./node_modules/.bin/gulp clobber",
-        "test": "./node_modules/.bin/mocha --harmony -R spec $(find ./test -n '*.js')"
+        "test":    "./node_modules/.bin/mocha --harmony -R spec $(find ./test -n '*.js')"
     },
     "license": "MIT",
     "repository": {
@@ -30,6 +29,5 @@
     },
     "bugs": {
         "url": "http://github.com/jhamlet/metalsmith-babylast/issues"
-    },
-    "private": true
+    }
 }

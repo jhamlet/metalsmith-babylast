@@ -1,7 +1,10 @@
 Metalsmith Babylast
 ===================
 
-> Babylon ASTs
+[Babylon]:    https://github.com/babel/babel/blob/master/packages/babylon/README.md
+[Metalsmith]: http://www.metalsmith.io/
+
+> Add a [Babylon](Babylon) AST to each [Metalsmith](Metalsmith) file object.
 
 
 Installation
@@ -12,8 +15,46 @@ Installation
 ~~~
 
 
-Summary
--------
+Usage
+-----
+
+
+~~~js
+var metalsmith = require('metalsmith');
+var babylast   = require('metalsmith-babylast');
+
+metalsmith(__dirname).
+    use(babylast({
+        tests:   [ /\.jsx?$/ ]
+        plugins: [ 'jsx', 'flow', 'decorators' ]
+    })).
+    // Now every metalsmith file object has a 'ast' property with the Babylon
+    // generated ast as its value
+    build(function (error) {
+        if (error) {
+            throw error;
+        }
+        console.log('done');
+    });
+~~~
+
+
+API
+---
+
+### babylast([options]) : Function
+
+#### options: Object
+
+* `sourceType`: String - The type of source file, `'script'` or `'module'`.
+  Default `'module'`.
+* `tests`: RegExp[] - One, or more, Regular Expressions used to determine
+  which files to include an ast for. Default `[ /\.js$/ ]`.
+* `plugins`: String[] - Which Babylon plugins to turn on. Default `[ 'jsx' ]`.
+* `property`: String - The property name to use when adding the ast to the
+  metalsmith file object. Default `'ast'`.
+
+See [Babylon](Babylon) for other values for the `options` object.
 
 
 Report an Issue
